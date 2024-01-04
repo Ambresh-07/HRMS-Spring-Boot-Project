@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: GATEWAY-SERVICE
+  cloud:
+    gateway:
+      routes:
+        - id: EmployeeManagemnet
+          uri: lb://EMPLOYEE-MANAGEMNET
+          predicates:
+            - Path=/Employee/**
+        - id: PayrollManagement
+          uri: lb://PAYROLL-MANAGEMNET
+          predicates:
+            - Path=/Payroll/**
+
+                
+
+server:
+  port: 8989
